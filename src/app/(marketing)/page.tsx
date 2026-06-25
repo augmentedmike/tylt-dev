@@ -1,0 +1,137 @@
+import { Bot, Users, Wallet } from "lucide-react";
+
+import { Stats } from "@/components/blocks/stats";
+import { FeatureGrid } from "@/components/blocks/feature-grid";
+import { Comparison } from "@/components/blocks/comparison";
+import { Faq } from "@/components/blocks/faq";
+import { CallToAction } from "@/components/blocks/call-to-action";
+import { PilotBar } from "@/components/blocks/pilot-bar";
+import { AgenticHero } from "@/components/blocks/agentic-hero";
+import { AgentDashboard } from "@/components/blocks/agent-dashboard";
+import { CompetitorSplit } from "@/components/blocks/competitor-split";
+import { PricingCalculator } from "@/components/blocks/pricing-calculator";
+import { ScrollEffect } from "@/components/blocks/scroll-effect";
+
+const CTA_HREF = "mailto:hello@tylt.dev";
+const icon = "size-5.5";
+
+export default function Home() {
+  return (
+    <>
+      <ScrollEffect />
+      <PilotBar ctaHref={CTA_HREF} />
+      <AgenticHero ctaHref={CTA_HREF} />
+      <AgentDashboard />
+
+      <Stats
+        stats={[
+          { value: "67%", label: "Lower cost vs a US agency" },
+          { value: "3×", label: "Faster time to delivery" },
+          { value: "<24h", label: "Patch turnaround, guaranteed" },
+          { value: "100%", label: "Senior oversight on every project" },
+        ]}
+      />
+
+      <FeatureGrid
+        id="how-it-works"
+        eyebrow="The Tylt difference"
+        title="A modern team, built for leverage"
+        subtitle="We restructured how a development shop works so the savings are real — and the quality doesn't slip."
+        features={[
+          {
+            icon: <Bot className={icon} />,
+            title: "Digital employees do the heavy lifting",
+            description:
+              "AI-powered workers handle the build, the boilerplate, and the busywork — so the bill isn't padded with hours of manual labor.",
+          },
+          {
+            icon: <Users className={icon} />,
+            title: "Real product leadership",
+            description:
+              "Senior product designers and managers own the strategy, the quality bar, and your roadmap. You're never handed off to a queue.",
+          },
+          {
+            icon: <Wallet className={icon} />,
+            title: "Savings passed straight to you",
+            description:
+              "Lower cost to produce means lower cost to you. Same caliber of work, without the onshore agency markup.",
+          },
+        ]}
+      />
+
+      <CompetitorSplit />
+
+      <Comparison
+        id="why"
+        eyebrow="Why Tylt"
+        title="Professional AI labor vs. the alternatives"
+        subtitle="US agencies charge human rates for work AI now handles. DIY vibe-coding tools burn your team's time and ship technical debt. Tylt is the third option."
+        columns={[
+          { label: "Tylt", highlight: true },
+          { label: "US agency" },
+          { label: "DIY vibe coding" },
+        ]}
+        rows={[
+          { label: "Senior product oversight", values: [true, true, false] },
+          { label: "60%+ cost savings", values: [true, false, false] },
+          { label: "Production-grade quality", values: [true, true, false] },
+          {
+            label: "No AI expertise needed from you",
+            values: [true, true, false],
+          },
+          { label: "Your team stays focused", values: [true, true, false] },
+          {
+            label: "Consistent, predictable velocity",
+            values: [true, false, false],
+          },
+          { label: "Same-day patch support", values: [true, false, false] },
+        ]}
+      />
+
+      <PricingCalculator ctaHref={CTA_HREF} />
+
+      <Faq
+        id="faq"
+        eyebrow="FAQ"
+        title="Questions, answered"
+        subtitle="Still curious? Book a call — we'll walk you through everything."
+        items={[
+          {
+            question: "Can Tylt be our entire engineering department?",
+            answer:
+              "Yes — and that's exactly how most of our clients use us. Whether you're a startup with no engineers or a mid-size company that wants to stop hiring, Tylt acts as your full product and engineering org: a senior PM and designer own strategy and quality, digital employees execute the build, and you stay in the loop without managing a team.",
+          },
+          {
+            question: "We have an existing codebase. Can Tylt take it over?",
+            answer:
+              "Absolutely. We onboard into your repo, your stack, your deployment setup. We do a technical review in the first week, get familiar with the architecture, and start shipping from there. You don't need to rebuild anything to work with us.",
+          },
+          {
+            question: "How does Tylt fit alongside our internal team?",
+            answer:
+              "Flexibly. Some clients hand off everything; others keep a small internal team for strategy while Tylt handles all execution. We work in your tools (Slack, Linear, GitHub, Figma), join standups if you want, and operate however your team operates. We're an extension, not a replacement — unless you want us to be.",
+          },
+          {
+            question: "What about security, IP ownership, and NDAs?",
+            answer:
+              "You own everything. All code, designs, and assets built under your engagement are yours — no licensing, no lock-in. We sign NDAs before any work begins. For enterprise clients we offer custom MSAs, SOC 2 documentation, and can work within your existing security and compliance requirements.",
+          },
+          {
+            question: "How do we scale up or wind down?",
+            answer:
+              "Workers scale month to month. Need to move faster? Add workers. Shipping a smaller scope this month? Reduce utilization or pause. There are no minimums, no penalties for scaling down, and no lock-in contracts. Enterprise clients can run multiple concurrent workstreams under a single engagement.",
+          },
+        ]}
+      />
+
+      <CallToAction
+        id="cta"
+        title="Ready to ship faster for less?"
+        subtitle="Book a free scoping call. We'll map out your project, give you a fixed price, and tell you exactly when it ships."
+        primaryAction={{ label: "Book a call", href: CTA_HREF }}
+        secondaryAction={{ label: "View pricing", href: "#pricing" }}
+        note="Typical reply within a few hours"
+      />
+    </>
+  );
+}

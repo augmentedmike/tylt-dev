@@ -1,0 +1,14 @@
+{
+  "projectId": "290d610e-7b2f-46e3-b218-02c7f65749b1",
+  "shape": "package",
+  "pkg": "tylt-dev",
+  "globalName": "TyltUI",
+  "srcDir": "src/components",
+  "tsconfig": "tsconfig.json",
+  "cssEntry": ".design-sync/.cache/compiled.css",
+  "buildCmd": "bunx @tailwindcss/cli -i ./.design-sync/ds-input.css -o ./.design-sync/.cache/compiled.css --minify",
+  "readmeHeader": ".design-sync/conventions.md",
+  "componentSrcMap": {
+    "ThemeProvider": null
+  }
+}

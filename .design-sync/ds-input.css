@@ -1,0 +1,30 @@
+/* Tailwind input for the design-system bundle.
+   Reuses the app's real theme/tokens from globals.css, but explicitly points
+   Tailwind at the component + preview sources (Tailwind v4 auto-detection skips
+   hidden dirs like .design-sync/, so previews/ must be named here).
+
+   In the app, next/font self-hosts the fonts and defines the --font-* vars on
+   <html>. The exported bundle has no such runtime, so we load the same families
+   from Google Fonts and define the vars here — otherwise designs render in a
+   system fallback. (App globals.css is untouched; this input is DS-only.) */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+@import "../src/app/globals.css";
+
+@source "../src/components";
+@source "./previews";
+
+/* Safelist the documented token palette (conventions.md) so designs built with
+   this DS can use the full brand palette even where the components themselves
+   don't happen to reference a given utility. */
+@source inline(
+  "{bg,text}-{background,foreground,card,card-foreground,popover,popover-foreground,primary,primary-foreground,secondary,secondary-foreground,muted,muted-foreground,accent,accent-foreground,destructive}"
+);
+@source inline("border-border ring-ring border-border/60");
+@source inline("rounded-{md,lg,xl,2xl} font-{sans,heading,display}");
+
+:root {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Geist", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  --font-geist-mono: "Geist Mono", ui-monospace, monospace;
+}
