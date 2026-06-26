@@ -9,7 +9,7 @@ import { PilotBar } from "@/components/blocks/pilot-bar";
 import { AgenticHero } from "@/components/blocks/agentic-hero";
 import { AgentDashboard } from "@/components/blocks/agent-dashboard";
 import { CompetitorSplit } from "@/components/blocks/competitor-split";
-import { PricingCalculator } from "@/components/blocks/pricing-calculator";
+import { TeamSavingsSection } from "@/components/blocks/savings-calculator";
 import { ScrollEffect } from "@/components/blocks/scroll-effect";
 
 // CTA targets — intercepted by <LeadDialog/> to open the matching modal.
@@ -90,7 +90,7 @@ export default function Home() {
         ]}
       />
 
-      <PricingCalculator ctaHref={PILOT_HREF} />
+      <TeamSavingsSection id="savings" ctaHref={CONSULT_HREF} />
 
       <Faq
         id="faq"
@@ -131,7 +131,7 @@ export default function Home() {
         title="Ready to ship faster for less?"
         subtitle="Book a free scoping call. We'll map out your project, give you a fixed price, and tell you exactly when it ships."
         primaryAction={{ label: "Book a call", href: CONSULT_HREF }}
-        secondaryAction={{ label: "View pricing", href: "#pricing" }}
+        secondaryAction={{ label: "View pricing", href: "#savings" }}
         note="Typical reply within a few hours"
       />
     </>

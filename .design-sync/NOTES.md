@@ -48,6 +48,18 @@ Project: `shadcn/ui — Tylt` (claude.ai/design) — projectId `290d610e-7b2f-46
 - Faq (and Accordion) static capture shows rows collapsed unless `defaultValue` is set — expected for single-open accordions.
 - Pricing `featured` tier's `-top-3` "Most popular" Badge clips slightly at the card's top edge in capture — cosmetic only.
 
+## Server-only code must stay OUT of `src/components`
+
+- The synth entry does `export * from` **every** `.tsx` under `cfg.srcDir` (`src/components`), regardless of `componentSrcMap`. So any file there that transitively imports a Node-only package breaks the esbuild browser bundle (`Could not resolve "stream"/"fs"/"crypto"/…`).
+- This bit us with `LeadDialog`, which imported the `submitLead` **server action** (`@/app/actions` → `@/lib/send-lead-email` → `nodemailer`). Fix was to **move `lead-dialog.tsx` out of `src/components` into `src/app/(marketing)/`** so it's never scanned. `componentSrcMap: {LeadDialog: null}` alone does NOT help — it only drops the card, not the import.
+- Rule: anything wired to a server action / `nodemailer` / Node built-ins belongs under `src/app`, not `src/components`. `componentSrcMap` nulls kept for `LeadDialog`/`ScrollEffect` (ScrollEffect renders nothing).
+
+## Component groups & overrides (2026 re-sync)
+
+- New groups beyond the original 35: **savings-calculator** (`SavingsCalculator`, `DevLine`, `AssumptionSlider`, `ResultPanel`) and new **general** primitives (`Slider`, `Checkbox`, `NumberField`, `Stepper`, `Field`, `PressHold`, `Dialog`+subparts). Bespoke landing blocks (`AgenticHero`, `AgentDashboard`, `CompetitorSplit`, `PilotBar`, `PricingCalculator`) ship as floor cards — they render fully (all-default props) so they look fine; author previews later if desired.
+- `cfg.overrides` set `cardMode: single` for full-bleed blocks (calculator section, hero, dashboard, competitor split, pricing) and `cardMode: column` for wide rows (`DevLine`, `AssumptionSlider`, `PilotBar`). `AssumptionSlider` tripped `[GRID_OVERFLOW]` until column was set.
+- Previews render in **light theme** (no `.dark` ancestor), consistent with the original 35. The brand's dark-magenta look only shows with `class="dark"` (see conventions.md). Components are correctly token-styled either way.
+
 ## Re-sync risks
 
 - The CSS must be recompiled (`cfg.buildCmd`) before the converter on every re-sync — it's machine state in `.cache/`, not committed.

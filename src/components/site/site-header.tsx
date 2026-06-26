@@ -29,7 +29,7 @@ const DEFAULT_LINKS: NavLink[] = [
   { href: "#capabilities", label: "What we do" },
   { href: "#process", label: "How it works" },
   { href: "#why", label: "Why Tylt" },
-  { href: "#pricing", label: "Pricing" },
+  { href: "#savings", label: "Pricing" },
 ];
 
 /**

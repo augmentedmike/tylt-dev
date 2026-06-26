@@ -56,8 +56,8 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
     await sendLeadEmail({ type, name, email, message, company, context });
   } catch (err) {
     const reason = err instanceof Error ? err.message : "";
-    if (reason === "MISSING_API_KEY") {
-      console.error("[lead] RESEND_API_KEY is not configured.");
+    if (reason === "MISSING_SMTP") {
+      console.error("[lead] MAIL_HOST is not configured.");
       return {
         ok: false,
         error: "Email isn't configured yet. Please email hello@tylt.dev.",

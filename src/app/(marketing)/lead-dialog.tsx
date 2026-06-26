@@ -276,7 +276,7 @@ export function LeadDialog() {
                 ) : (
                   <PressHold
                     key={attempt}
-                    holdMs={10_000}
+                    holdMs={6_000}
                     onComplete={onHoldComplete}
                     className="mt-1"
                     holdingLabel={(s) => `Keep holding… ${s}s`}

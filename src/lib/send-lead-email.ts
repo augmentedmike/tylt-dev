@@ -1,5 +1,9 @@
-// Server-only: imported solely by the /api/lead route handler. Reads
-// RESEND_API_KEY from the environment and must never reach the client bundle.
+// Server-only: imported solely by the submitLead server action. Sends lead
+// notifications over SMTP via nodemailer, configured from MAIL_* env vars —
+// the same setup the other apps use (local Maildev/"mailtrap" in dev, any SMTP
+// provider in prod). Must never reach the client bundle.
+
+import nodemailer from "nodemailer";
 
 export type LeadType = "pilot" | "consultation";
 
@@ -35,7 +39,24 @@ function recipientFor(type: LeadType): string {
   return `consultation+${TYPE_CONFIG[type].recipientTag}@tylt.dev`;
 }
 
-const FROM_EMAIL = process.env.LEAD_FROM_EMAIL ?? "Tylt Website <noreply@tylt.dev>";
+const MAIL_FROM = process.env.MAIL_FROM ?? "Tylt Website <noreply@tylt.dev>";
+
+function getTransporter() {
+  const host = process.env.MAIL_HOST;
+  if (!host) return null;
+  const port = Number(process.env.MAIL_PORT) || 587;
+  const user = process.env.MAIL_USER;
+  const pass = process.env.MAIL_PASS;
+  const isLocal = host === "127.0.0.1" || host === "localhost";
+
+  return nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    ...(isLocal ? { ignoreTLS: true } : {}),
+    ...(user && pass ? { auth: { user, pass } } : {}),
+  });
+}
 
 function escapeHtml(value: string): string {
   return value
@@ -83,34 +104,23 @@ function toText(payload: LeadPayload): string {
 }
 
 /**
- * Sends a lead notification to the plus-addressed consultation inbox via the
- * Resend REST API. Throws "MISSING_API_KEY" when unconfigured so the route can
- * return a clear setup message.
+ * Sends a lead notification to the plus-addressed consultation inbox over SMTP.
+ * Reply-to is the submitter so you can respond straight from the notification.
+ * Throws "MISSING_SMTP" when MAIL_HOST is unset so the action can return a clear
+ * setup message.
  */
 export async function sendLeadEmail(payload: LeadPayload): Promise<void> {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) {
-    throw new Error("MISSING_API_KEY");
+  const transporter = getTransporter();
+  if (!transporter) {
+    throw new Error("MISSING_SMTP");
   }
 
-  const res = await fetch("https://api.resend.com/emails", {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${apiKey}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      from: FROM_EMAIL,
-      to: [recipientFor(payload.type)],
-      reply_to: payload.email,
-      subject: TYPE_CONFIG[payload.type].subject(payload.name),
-      html: toHtml(payload),
-      text: toText(payload),
-    }),
+  await transporter.sendMail({
+    from: MAIL_FROM,
+    to: recipientFor(payload.type),
+    replyTo: payload.email,
+    subject: TYPE_CONFIG[payload.type].subject(payload.name),
+    text: toText(payload),
+    html: toHtml(payload),
   });
-
-  if (!res.ok) {
-    const detail = await res.text().catch(() => "");
-    throw new Error(`RESEND_ERROR ${res.status} ${detail}`.trim());
-  }
 }

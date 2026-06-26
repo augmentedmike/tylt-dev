@@ -9,6 +9,19 @@
   "buildCmd": "bunx @tailwindcss/cli -i ./.design-sync/ds-input.css -o ./.design-sync/.cache/compiled.css --minify",
   "readmeHeader": ".design-sync/conventions.md",
   "componentSrcMap": {
-    "ThemeProvider": null
+    "ThemeProvider": null,
+    "LeadDialog": null,
+    "ScrollEffect": null
+  },
+  "overrides": {
+    "SavingsCalculator": { "cardMode": "single", "primaryStory": "Default" },
+    "TeamSavingsSection": { "cardMode": "single" },
+    "DevLine": { "cardMode": "column" },
+    "AssumptionSlider": { "cardMode": "column" },
+    "AgenticHero": { "cardMode": "single" },
+    "AgentDashboard": { "cardMode": "single" },
+    "CompetitorSplit": { "cardMode": "single" },
+    "PricingCalculator": { "cardMode": "single" },
+    "PilotBar": { "cardMode": "column" }
   }
 }

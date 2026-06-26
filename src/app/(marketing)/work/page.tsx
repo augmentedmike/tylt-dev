@@ -26,7 +26,7 @@ export default function WorkPage() {
         titleAccent="Shipped right."
         subtitle="A sample of what a small, leveraged team ships when planning, design, and build move together."
         primaryAction={{ label: "Start a project", href: "/#contact" }}
-        secondaryAction={{ label: "See pricing", href: "/#pricing" }}
+        secondaryAction={{ label: "See pricing", href: "/#savings" }}
       />
 
       <FeatureGrid

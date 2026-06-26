@@ -5,7 +5,7 @@ import { cn } from "@/lib/utils";
 
 export interface PressHoldProps
   extends Omit<React.ComponentProps<"button">, "onClick" | "children"> {
-  /** How long the button must be held, in ms, before firing. Default 10000 (10s). */
+  /** How long the button must be held, in ms, before firing. Default 6000 (6s). */
   holdMs?: number;
   /** Fires once after an uninterrupted hold of `holdMs`. */
   onComplete: () => void;
@@ -26,7 +26,7 @@ export interface PressHoldProps
  * against scripted/automated submission.
  */
 export function PressHold({
-  holdMs = 10_000,
+  holdMs = 6_000,
   onComplete,
   children,
   holdingLabel,

@@ -70,7 +70,7 @@ export function AgenticHero({
               color: "oklch(70% 0.01 300)",
             }}
           >
-            American-owned · Agentic dev shop
+            American-owned/operated · Agentic dev shop
           </span>
         </div>
         {/* H1 — two lines, both white, pink period */}
