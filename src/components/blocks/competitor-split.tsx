@@ -1,19 +1,19 @@
 import type { CSSProperties } from "react";
 
 const checkItems = [
-  "Managed by senior product designers — quality is owned by us, not you",
+  "Every line reviewed and owned by senior engineers — not just generated",
   "Production-grade code — architected to scale, not to demo",
-  "Your engineers stay focused on the business, not on prompt engineering",
-  "60%+ cheaper than a US agency — savings passed straight to you",
+  "Security and IP handled — no leaked keys, no exposed customer data",
+  "60%+ cheaper than a traditional onshore agency — savings passed straight to you",
   "Predictable velocity — workers run up to 80% utilization week over week",
 ];
 
 const crossItems = [
-  "No product oversight — whoever knows the tool becomes the de facto PM",
-  "Spaghetti code under the hood — fast to demo, expensive to maintain",
-  "Best engineers distracted — learning tools instead of shipping product",
-  "Hidden costs — subscriptions, rework, and the rewrite you'll need in 6 months",
-  "Inconsistent output — quality depends on who prompted it today",
+  "Insecure by default — ~45% of AI-generated code ships with an OWASP-class flaw",
+  "Leaked secrets & data — audits keep finding exposed API keys and customer PII",
+  "Looks right, runs right, isn't right — passes the demo, fails real requirements",
+  "Unmaintainable output — no one owns the architecture you have to scale on",
+  "The rewrite lands on you — your senior engineers inherit the cleanup",
 ];
 
 const checkIconStyle: CSSProperties = {
@@ -71,7 +71,7 @@ export function CompetitorSplit() {
               marginBottom: "14px",
             }}
           >
-            Don&apos;t DIY your AI
+            The vibe-coding trap
           </div>
           <h2
             style={{
@@ -83,7 +83,7 @@ export function CompetitorSplit() {
               textWrap: "balance",
             }}
           >
-            Your engineers shouldn&apos;t be learning Base44 on company time.
+            The demo ships in an hour. The vulnerabilities ship with it.
           </h2>
           <p
             style={{
@@ -94,10 +94,10 @@ export function CompetitorSplit() {
               lineHeight: 1.6,
             }}
           >
-            Vibe-coding tools like Base44, Bolt, and Lovable are impressive —
-            for demos. They fall apart under real requirements, produce
-            unmaintainable code, and quietly consume your best engineers&apos;
-            focus. Tylt gives you AI cost savings with real product discipline.
+            Base44, Bolt, and Lovable nail the demo — then leak secrets and ship
+            vulnerabilities in production. Veracode found 45% of AI-generated
+            code carries an OWASP-class flaw. Tylt gives you the same speed, with
+            senior review on every line.
           </p>
         </div>
         <div

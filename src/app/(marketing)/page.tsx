@@ -12,20 +12,22 @@ import { CompetitorSplit } from "@/components/blocks/competitor-split";
 import { PricingCalculator } from "@/components/blocks/pricing-calculator";
 import { ScrollEffect } from "@/components/blocks/scroll-effect";
 
-const CTA_HREF = "mailto:hello@tylt.dev";
+// CTA targets — intercepted by <LeadDialog/> to open the matching modal.
+const CONSULT_HREF = "#lead-consultation";
+const PILOT_HREF = "#lead-pilot";
 const icon = "size-5.5";
 
 export default function Home() {
   return (
     <>
       <ScrollEffect />
-      <PilotBar ctaHref={CTA_HREF} />
-      <AgenticHero ctaHref={CTA_HREF} />
+      <PilotBar ctaHref={PILOT_HREF} />
+      <AgenticHero ctaHref={CONSULT_HREF} />
       <AgentDashboard />
 
       <Stats
         stats={[
-          { value: "67%", label: "Lower cost vs a US agency" },
+          { value: "67%", label: "Lower cost vs a traditional onshore agency" },
           { value: "3×", label: "Faster time to delivery" },
           { value: "<24h", label: "Patch turnaround, guaranteed" },
           { value: "100%", label: "Senior oversight on every project" },
@@ -65,10 +67,10 @@ export default function Home() {
         id="why"
         eyebrow="Why Tylt"
         title="Professional AI labor vs. the alternatives"
-        subtitle="US agencies charge human rates for work AI now handles. DIY vibe-coding tools burn your team's time and ship technical debt. Tylt is the third option."
+        subtitle="Traditional onshore agencies charge human rates for work AI now handles. DIY vibe-coding tools ship fast — then leak secrets and pile up technical debt your engineers have to unwind. Tylt is the third option."
         columns={[
           { label: "Tylt", highlight: true },
-          { label: "US agency" },
+          { label: "Traditional agency" },
           { label: "DIY vibe coding" },
         ]}
         rows={[
@@ -88,7 +90,7 @@ export default function Home() {
         ]}
       />
 
-      <PricingCalculator ctaHref={CTA_HREF} />
+      <PricingCalculator ctaHref={PILOT_HREF} />
 
       <Faq
         id="faq"
@@ -128,7 +130,7 @@ export default function Home() {
         id="cta"
         title="Ready to ship faster for less?"
         subtitle="Book a free scoping call. We'll map out your project, give you a fixed price, and tell you exactly when it ships."
-        primaryAction={{ label: "Book a call", href: CTA_HREF }}
+        primaryAction={{ label: "Book a call", href: CONSULT_HREF }}
         secondaryAction={{ label: "View pricing", href: "#pricing" }}
         note="Typical reply within a few hours"
       />

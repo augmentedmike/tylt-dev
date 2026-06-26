@@ -33,12 +33,12 @@ export const metadata: Metadata = {
     template: "%s — Tylt",
   },
   description:
-    "Tylt is an American-owned agentic dev shop. We run in-house AI digital workers, steered by senior product leads, to design, build, and ship your software for 60%+ less than a US agency.",
+    "Tylt is an American-owned agentic dev shop. We run in-house AI digital workers, steered by senior product leads, to design, build, and ship your software for 60%+ less than a traditional onshore agency.",
   metadataBase: new URL("https://tylt.dev"),
   openGraph: {
     title: "Tylt — We're the AI experts. Your team doesn't have to be.",
     description:
-      "American-owned agentic dev shop. In-house AI workers managed by senior product talent build and ship your software for 60%+ less than a US agency.",
+      "American-owned agentic dev shop. In-house AI workers managed by senior product talent build and ship your software for 60%+ less than a traditional onshore agency.",
     type: "website",
   },
 };
