@@ -9,6 +9,7 @@ import { PilotBar } from "@/components/blocks/pilot-bar";
 import { AgenticHero } from "@/components/blocks/agentic-hero";
 import { AgentDashboard } from "@/components/blocks/agent-dashboard";
 import { CompetitorSplit } from "@/components/blocks/competitor-split";
+import { VibeRescue } from "@/components/blocks/vibe-rescue";
 import { TeamSavingsSection } from "@/components/blocks/savings-calculator";
 import { ScrollEffect } from "@/components/blocks/scroll-effect";
 
@@ -62,6 +63,8 @@ export default function Home() {
       />
 
       <CompetitorSplit />
+
+      <VibeRescue ctaHref={CONSULT_HREF} />
 
       <Comparison
         id="why"
