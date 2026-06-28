@@ -1,4 +1,4 @@
-import { Check } from "lucide-react";
+import { Check, Minus } from "lucide-react";
 
 import { Section, SectionHeading } from "@/components/blocks/section";
 import { cn } from "@/lib/utils";
@@ -55,7 +55,60 @@ export function Comparison({
   return (
     <Section id={id} muted={muted}>
       <SectionHeading eyebrow={eyebrow} title={title} subtitle={subtitle} />
-      <div className="mx-auto mt-12 max-w-3xl overflow-hidden rounded-xl border border-border/60 bg-card">
+
+      {/* Mobile: one card per option (a wide table can't fit a phone). */}
+      <div className="mx-auto mt-10 flex max-w-md flex-col gap-4 md:hidden">
+        {columns.map((col, ci) => (
+          <div
+            key={col.label}
+            className={cn(
+              "rounded-xl border bg-card p-5",
+              col.highlight ? "border-primary/40" : "border-border/60",
+            )}
+          >
+            <div
+              className={cn(
+                "font-heading text-base font-semibold",
+                col.highlight ? "text-primary" : "text-foreground",
+              )}
+            >
+              {col.label}
+            </div>
+            <ul className="mt-3 space-y-2.5">
+              {rows.map((row) => (
+                <li
+                  key={row.label}
+                  className="flex items-start gap-2.5 text-sm"
+                >
+                  {row.values[ci] ? (
+                    <Check
+                      className={cn(
+                        "mt-0.5 size-4 shrink-0",
+                        col.highlight ? "text-primary" : "text-foreground",
+                      )}
+                    />
+                  ) : (
+                    <Minus className="mt-0.5 size-4 shrink-0 text-muted-foreground/40" />
+                  )}
+                  <span
+                    className={cn(
+                      "text-pretty",
+                      row.values[ci]
+                        ? "text-foreground"
+                        : "text-muted-foreground line-through decoration-muted-foreground/30",
+                    )}
+                  >
+                    {row.label}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop: full comparison table. */}
+      <div className="mx-auto mt-12 hidden max-w-3xl overflow-hidden rounded-xl border border-border/60 bg-card md:block">
         <div
           style={gridStyle}
           className="grid items-center gap-2 border-b border-border/60 bg-muted/40 px-4 py-3 text-xs font-semibold sm:px-6 sm:text-sm"

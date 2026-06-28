@@ -52,27 +52,29 @@
 }
 
 :root {
-  --background: oklch(1 0 0);
-  --foreground: oklch(0.145 0 0);
+  /* Light theme — magenta-brand on a soft, warm-tinted white. */
+  --background: oklch(0.985 0.003 320);
+  --foreground: oklch(0.18 0.02 320);
   --card: oklch(1 0 0);
-  --card-foreground: oklch(0.145 0 0);
+  --card-foreground: oklch(0.18 0.02 320);
   --popover: oklch(1 0 0);
-  --popover-foreground: oklch(0.145 0 0);
-  --primary: oklch(0.205 0 0);
-  --primary-foreground: oklch(0.985 0 0);
-  /* Filled CTA surface — same as primary in light mode. */
+  --popover-foreground: oklch(0.18 0.02 320);
+  /* Magenta brand, dark enough for white button text and on-white accent text. */
+  --primary: oklch(0.52 0.27 350);
+  --primary-foreground: oklch(1 0 0);
+  /* Filled CTA surface — same magenta in light mode. */
   --cta: var(--primary);
-  --cta-foreground: var(--primary-foreground);
-  --secondary: oklch(0.97 0 0);
-  --secondary-foreground: oklch(0.205 0 0);
-  --muted: oklch(0.97 0 0);
-  --muted-foreground: oklch(0.556 0 0);
-  --accent: oklch(0.97 0 0);
-  --accent-foreground: oklch(0.205 0 0);
+  --cta-foreground: oklch(1 0 0);
+  --secondary: oklch(0.96 0.006 320);
+  --secondary-foreground: oklch(0.22 0.02 320);
+  --muted: oklch(0.96 0.006 320);
+  --muted-foreground: oklch(0.45 0.02 320);
+  --accent: oklch(0.96 0.006 320);
+  --accent-foreground: oklch(0.22 0.02 320);
   --destructive: oklch(0.577 0.245 27.325);
-  --border: oklch(0.922 0 0);
-  --input: oklch(0.922 0 0);
-  --ring: oklch(0.708 0 0);
+  --border: oklch(0.9 0.012 320);
+  --input: oklch(0.9 0.012 320);
+  --ring: oklch(0.52 0.27 350);
   --chart-1: oklch(0.87 0 0);
   --chart-2: oklch(0.556 0 0);
   --chart-3: oklch(0.439 0 0);
@@ -139,6 +141,10 @@
   }
   html {
     @apply font-sans;
+    /* Clip stray horizontal overflow (e.g. centered glows wider than small
+       viewports) so portrait/mobile use the device's natural width. `clip`
+       (not `hidden`) doesn't create a scroll container, so sticky still works. */
+    overflow-x: clip;
   }
 }
 
@@ -175,6 +181,31 @@ header > div:first-child {
 }
 body.tylt-scrolled header > div:first-child {
   height: 46px !important;
+}
+
+/* Pilot subheader — full layout by default; a compact one-line layout on
+   mobile once the page is scrolled. Driven by the global `tylt-scrolled` class.
+   Display is controlled here (not inline) so these rules can override it. */
+.pilot-full {
+  display: flex;
+}
+.pilot-compact {
+  display: none;
+}
+body.tylt-scrolled .pilot-bar {
+  top: 46px;
+}
+@media (max-width: 640px) {
+  body.tylt-scrolled .pilot-bar {
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+  body.tylt-scrolled .pilot-full {
+    display: none;
+  }
+  body.tylt-scrolled .pilot-compact {
+    display: flex;
+  }
 }
 
 /* Offset in-page anchor targets so they land below the sticky header + the

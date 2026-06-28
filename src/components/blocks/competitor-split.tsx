@@ -32,13 +32,13 @@ const crossIconStyle: CSSProperties = {
 
 const checkTextStyle: CSSProperties = {
   fontSize: "14px",
-  color: "oklch(82% 0.01 300)",
+  color: "var(--foreground)",
   lineHeight: 1.45,
 };
 
 const crossTextStyle: CSSProperties = {
   fontSize: "14px",
-  color: "oklch(66% 0.01 300)",
+  color: "var(--muted-foreground)",
   lineHeight: 1.45,
 };
 
@@ -53,9 +53,9 @@ export function CompetitorSplit() {
     <div
       style={{
         padding: "80px 24px",
-        background: "oklch(12% 0.04 300)",
-        borderTop: "1px solid oklch(100% 0 0 / 0.06)",
-        borderBottom: "1px solid oklch(100% 0 0 / 0.06)",
+        background: "var(--background)",
+        borderTop: "1px solid var(--border)",
+        borderBottom: "1px solid var(--border)",
       }}
     >
       <div style={{ maxWidth: "960px", margin: "0 auto" }}>
@@ -67,7 +67,7 @@ export function CompetitorSplit() {
               fontWeight: 600,
               letterSpacing: "0.1em",
               textTransform: "uppercase",
-              color: "oklch(62% 0.22 350)",
+              color: "var(--primary)",
               marginBottom: "14px",
             }}
           >
@@ -78,7 +78,7 @@ export function CompetitorSplit() {
               fontSize: "clamp(24px,3.5vw,38px)",
               fontWeight: 700,
               lineHeight: 1.15,
-              color: "oklch(96% 0.01 300)",
+              color: "var(--foreground)",
               margin: "0 0 14px",
               textWrap: "balance",
             }}
@@ -88,7 +88,7 @@ export function CompetitorSplit() {
           <p
             style={{
               fontSize: "17px",
-              color: "oklch(62% 0.02 300)",
+              color: "var(--muted-foreground)",
               maxWidth: "580px",
               margin: "0 auto",
               lineHeight: 1.6,
@@ -103,13 +103,15 @@ export function CompetitorSplit() {
         <div
           style={{
             display: "grid",
-            gridTemplateColumns: "1fr 1fr",
+            // Auto-stacks to one column when the viewport is too narrow for two.
+            gridTemplateColumns:
+              "repeat(auto-fit, minmax(min(100%, 280px), 1fr))",
             gap: "16px",
           }}
         >
           <div
             style={{
-              background: "oklch(14% 0.04 300)",
+              background: "var(--card)",
               border: "1px solid oklch(57% 0.31 350 / 0.3)",
               borderRadius: "12px",
               padding: "28px 32px",
@@ -129,7 +131,7 @@ export function CompetitorSplit() {
                   width: "8px",
                   height: "8px",
                   borderRadius: "50%",
-                  background: "oklch(57% 0.31 350)",
+                  background: "var(--primary)",
                   boxShadow: "0 0 8px oklch(57% 0.31 350 / 0.7)",
                   flexShrink: 0,
                 }}
@@ -140,7 +142,7 @@ export function CompetitorSplit() {
                   fontWeight: 700,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "oklch(75% 0.22 350)",
+                  color: "var(--primary)",
                 }}
               >
                 Tylt agentic workers
@@ -159,8 +161,8 @@ export function CompetitorSplit() {
           </div>
           <div
             style={{
-              background: "oklch(11% 0.03 300)",
-              border: "1px solid oklch(100% 0 0 / 0.08)",
+              background: "var(--background)",
+              border: "1px solid var(--border)",
               borderRadius: "12px",
               padding: "28px 32px",
             }}
@@ -178,7 +180,7 @@ export function CompetitorSplit() {
                   width: "8px",
                   height: "8px",
                   borderRadius: "50%",
-                  background: "oklch(35% 0.02 300)",
+                  background: "var(--muted-foreground)",
                   flexShrink: 0,
                 }}
               ></div>
@@ -188,7 +190,7 @@ export function CompetitorSplit() {
                   fontWeight: 700,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "oklch(66% 0.02 300)",
+                  color: "var(--muted-foreground)",
                 }}
               >
                 Your team + Base44 / Bolt
