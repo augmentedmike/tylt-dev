@@ -101,15 +101,15 @@ export function VibeRescue({
           </p>
         </div>
 
-        <p className="mt-6 text-center text-sm text-muted-foreground">
+        <div className="mt-8 flex justify-center">
           <a
             href={detailHref}
-            className="inline-flex items-center gap-1.5 font-medium text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+            className="inline-flex items-center gap-2 rounded-lg border-2 border-primary/60 px-5 py-2.5 text-sm font-semibold text-foreground transition-colors hover:bg-primary/10 hover:text-foreground"
           >
-            Why an expert engineer + AI beats anyone + AI
-            <ArrowRight className="size-3.5" />
+            What it actually takes to ship great software
+            <ArrowRight className="size-4" />
           </a>
-        </p>
+        </div>
       </div>
     </section>
   );

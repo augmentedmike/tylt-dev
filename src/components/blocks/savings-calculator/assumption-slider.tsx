@@ -12,6 +12,8 @@ export interface AssumptionSliderProps {
   step?: number;
   /** Formats the live value shown at the end of the label row. */
   format?: (value: number) => string;
+  /** Accessible name for the slider thumb when `label` isn't a plain string. */
+  ariaLabel?: string;
 }
 
 /** A labeled slider for one model assumption, with its live value and a hint. */
@@ -24,6 +26,7 @@ export function AssumptionSlider({
   max,
   step = 1,
   format = (v) => String(v),
+  ariaLabel,
 }: AssumptionSliderProps) {
   return (
     <Field label={label} hint={hint} labelEnd={format(value)}>
@@ -33,6 +36,9 @@ export function AssumptionSlider({
         max={max}
         step={step}
         onValueChange={(vals) => onValueChange(vals[0])}
+        thumbLabel={
+          ariaLabel ?? (typeof label === "string" ? label : undefined)
+        }
         className="py-1"
       />
     </Field>

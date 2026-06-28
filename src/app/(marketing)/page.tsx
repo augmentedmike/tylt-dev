@@ -12,6 +12,7 @@ import { PilotBar } from "@/components/blocks/pilot-bar";
 import { AgenticHero } from "@/components/blocks/agentic-hero";
 import { AgentDashboard } from "@/components/blocks/agent-dashboard";
 import { CompetitorSplit } from "@/components/blocks/competitor-split";
+import { TeamFormula } from "@/components/blocks/team-formula";
 import { VibeRescue } from "@/components/blocks/vibe-rescue";
 import { TeamSavingsSection } from "@/components/blocks/savings-calculator";
 import { ScrollEffect } from "@/components/blocks/scroll-effect";
@@ -135,6 +136,8 @@ export default function Home() {
         ]}
       />
 
+      <TeamFormula muted />
+
       <CompetitorSplit />
 
       <VibeRescue ctaHref={CONSULT_HREF} />
@@ -181,7 +184,6 @@ export default function Home() {
         title="Ready to ship faster for less?"
         subtitle="Book a free scoping call. We'll map out your project, give you a fixed price, and tell you exactly when it ships."
         primaryAction={{ label: "Book a call", href: CONSULT_HREF }}
-        secondaryAction={{ label: "View pricing", href: "#savings" }}
         note="Typical reply within a few hours"
       />
     </>

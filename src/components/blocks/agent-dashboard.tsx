@@ -78,7 +78,7 @@ export function AgentDashboard() {
             <span
               style={{
                 fontSize: "11px",
-                color: "oklch(52% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 fontFamily: "ui-monospace,monospace",
               }}
             >
@@ -116,7 +116,7 @@ export function AgentDashboard() {
               style={{
                 fontSize: "10px",
                 fontWeight: 600,
-                color: "oklch(36% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 fontFamily: "ui-monospace,monospace",
                 textTransform: "uppercase",
                 letterSpacing: "0.1em",
@@ -156,7 +156,7 @@ export function AgentDashboard() {
                 style={{
                   marginLeft: "auto",
                   fontSize: "10px",
-                  color: "oklch(55% 0.12 145)",
+                  color: "oklch(66% 0.12 145)",
                   fontFamily: "ui-monospace,monospace",
                   background: "oklch(68% 0.18 145 / 0.1)",
                   padding: "2px 7px",
@@ -196,7 +196,7 @@ export function AgentDashboard() {
                 style={{
                   marginLeft: "auto",
                   fontSize: "10px",
-                  color: "oklch(55% 0.12 145)",
+                  color: "oklch(66% 0.12 145)",
                   fontFamily: "ui-monospace,monospace",
                   background: "oklch(68% 0.18 145 / 0.1)",
                   padding: "2px 7px",
@@ -236,7 +236,7 @@ export function AgentDashboard() {
                 style={{
                   marginLeft: "auto",
                   fontSize: "10px",
-                  color: "oklch(55% 0.12 145)",
+                  color: "oklch(66% 0.12 145)",
                   fontFamily: "ui-monospace,monospace",
                   background: "oklch(68% 0.18 145 / 0.1)",
                   padding: "2px 7px",
@@ -303,7 +303,7 @@ export function AgentDashboard() {
               <span
                 style={{
                   fontSize: "13px",
-                  color: "oklch(44% 0.01 300)",
+                  color: "oklch(66% 0.01 300)",
                   fontFamily: "ui-sans-serif,system-ui,sans-serif",
                 }}
               >
@@ -313,7 +313,7 @@ export function AgentDashboard() {
                 style={{
                   marginLeft: "auto",
                   fontSize: "10px",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   fontFamily: "ui-monospace,monospace",
                   padding: "2px 7px",
                   borderRadius: "4px",
@@ -339,7 +339,7 @@ export function AgentDashboard() {
                 style={{
                   fontSize: "10px",
                   fontWeight: 600,
-                  color: "oklch(36% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   fontFamily: "ui-monospace,monospace",
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
@@ -350,7 +350,7 @@ export function AgentDashboard() {
               <div
                 style={{
                   fontSize: "10px",
-                  color: "oklch(42% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   fontFamily: "ui-monospace,monospace",
                 }}
               >
@@ -453,7 +453,7 @@ export function AgentDashboard() {
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(45% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   fontFamily: "ui-monospace,monospace",
                 }}
               >
@@ -473,7 +473,7 @@ export function AgentDashboard() {
               <div
                 style={{
                   fontSize: "10px",
-                  color: "oklch(45% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   fontFamily: "ui-monospace,monospace",
                 }}
               >
@@ -491,7 +491,7 @@ export function AgentDashboard() {
               <div
                 style={{
                   fontSize: "10px",
-                  color: "oklch(42% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   fontFamily: "ui-monospace,monospace",
                   textDecoration: "line-through",
                 }}
@@ -526,7 +526,7 @@ export function AgentDashboard() {
           <span
             style={{
               fontSize: "11px",
-              color: "oklch(40% 0.02 300)",
+              color: "oklch(66% 0.02 300)",
               fontFamily: "ui-monospace,monospace",
               flex: 1,
             }}

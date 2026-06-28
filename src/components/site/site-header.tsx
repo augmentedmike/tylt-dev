@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { Menu, X } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
@@ -25,11 +26,12 @@ export interface SiteHeaderProps {
   showThemeToggle?: boolean;
 }
 
+// Root-relative anchors (/#…) so they work from sub-pages too, not just home.
 const DEFAULT_LINKS: NavLink[] = [
-  { href: "#capabilities", label: "What we do" },
-  { href: "#process", label: "How it works" },
-  { href: "#why", label: "Why Tylt" },
-  { href: "#savings", label: "Pricing" },
+  { href: "/#how-it-works", label: "What we do" },
+  { href: "/#the-formula", label: "How it works" },
+  { href: "/#why", label: "Why Tylt" },
+  { href: "/#savings", label: "Pricing" },
 ];
 
 /**
@@ -46,9 +48,9 @@ export function SiteHeader({
   return (
     <header className="sticky top-0 z-50 border-b border-border/60 bg-background/80 backdrop-blur-md">
       <div className="mx-auto flex h-16 max-w-6xl items-center justify-between gap-4 px-4 sm:px-6">
-        <a href="#top" className="shrink-0">
+        <Link href="/" aria-label="Tylt home" className="shrink-0">
           <Logo />
-        </a>
+        </Link>
 
         <nav className="hidden items-center gap-1 md:flex">
           {links.map((link) => (

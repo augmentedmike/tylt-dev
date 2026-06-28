@@ -36,6 +36,8 @@
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
+  --color-cta-foreground: var(--cta-foreground);
+  --color-cta: var(--cta);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
   --color-card-foreground: var(--card-foreground);
@@ -58,6 +60,9 @@
   --popover-foreground: oklch(0.145 0 0);
   --primary: oklch(0.205 0 0);
   --primary-foreground: oklch(0.985 0 0);
+  /* Filled CTA surface — same as primary in light mode. */
+  --cta: var(--primary);
+  --cta-foreground: var(--primary-foreground);
   --secondary: oklch(0.97 0 0);
   --secondary-foreground: oklch(0.205 0 0);
   --muted: oklch(0.97 0 0);
@@ -95,6 +100,11 @@
   --popover-foreground: oklch(96% 0.01 300);
   --primary: oklch(57% 0.31 350);
   --primary-foreground: oklch(98% 0 0);
+  /* Filled CTA surface — darker magenta with pure-white text so it clears
+     WCAG AA (4.5:1). Kept separate from --primary, which stays bright for
+     text/accents that need to read on dark backgrounds. */
+  --cta: oklch(53% 0.31 350);
+  --cta-foreground: oklch(100% 0 0);
   --secondary: oklch(18% 0.04 300);
   --secondary-foreground: oklch(96% 0.01 300);
   --muted: oklch(18% 0.04 300);
@@ -167,16 +177,9 @@ body.tylt-scrolled header > div:first-child {
   height: 46px !important;
 }
 
-/* CallToAction band override — solid card w/ magenta outline, no radial glow */
-section#cta > div {
-  background-color: oklch(14% 0.04 300) !important;
-  border: 2px solid oklch(57% 0.31 350 / 0.55) !important;
-}
-section#cta > div > [aria-hidden="true"] {
-  display: none !important;
-}
-section#cta h2,
-section#cta p,
-section#cta [class*="text-primary-foreground"] {
-  color: oklch(96% 0.01 300) !important;
+/* Offset in-page anchor targets so they land below the sticky header + the
+   sticky pilot subheader (top: var(--header-h)) instead of under them. */
+section[id],
+main[id] {
+  scroll-margin-top: calc(var(--header-h, 64px) + 3.75rem);
 }

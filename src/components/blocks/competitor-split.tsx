@@ -24,7 +24,7 @@ const checkIconStyle: CSSProperties = {
 };
 
 const crossIconStyle: CSSProperties = {
-  color: "oklch(52% 0.18 25)",
+  color: "oklch(66% 0.18 25)",
   fontSize: "14px",
   flexShrink: 0,
   marginTop: "1px",
@@ -38,7 +38,7 @@ const checkTextStyle: CSSProperties = {
 
 const crossTextStyle: CSSProperties = {
   fontSize: "14px",
-  color: "oklch(48% 0.01 300)",
+  color: "oklch(66% 0.01 300)",
   lineHeight: 1.45,
 };
 
@@ -188,7 +188,7 @@ export function CompetitorSplit() {
                   fontWeight: 700,
                   letterSpacing: "0.08em",
                   textTransform: "uppercase",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                 }}
               >
                 Your team + Base44 / Bolt

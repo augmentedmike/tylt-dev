@@ -36,7 +36,7 @@ export function PricingCalculator({
               fontWeight: 600,
               letterSpacing: "0.12em",
               textTransform: "uppercase",
-              color: "oklch(57% 0.31 350)",
+              color: "oklch(66% 0.31 350)",
               marginBottom: "14px",
             }}
           >
@@ -91,7 +91,7 @@ export function PricingCalculator({
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "oklch(48% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 marginBottom: "20px",
               }}
             >
@@ -115,14 +115,14 @@ export function PricingCalculator({
               >
                 $1,000
               </span>
-              <span style={{ fontSize: "15px", color: "oklch(48% 0.02 300)" }}>
+              <span style={{ fontSize: "15px", color: "oklch(66% 0.02 300)" }}>
                 / month
               </span>
             </div>
             <p
               style={{
                 fontSize: "14px",
-                color: "oklch(52% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 margin: "0 0 28px",
                 lineHeight: 1.55,
               }}
@@ -223,7 +223,7 @@ export function PricingCalculator({
                 fontWeight: 600,
                 letterSpacing: "0.12em",
                 textTransform: "uppercase",
-                color: "oklch(57% 0.31 350)",
+                color: "oklch(66% 0.31 350)",
                 marginBottom: "20px",
               }}
             >
@@ -247,14 +247,14 @@ export function PricingCalculator({
               >
                 $25
               </span>
-              <span style={{ fontSize: "15px", color: "oklch(48% 0.02 300)" }}>
+              <span style={{ fontSize: "15px", color: "oklch(66% 0.02 300)" }}>
                 / hr · per worker
               </span>
             </div>
             <p
               style={{
                 fontSize: "14px",
-                color: "oklch(52% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 margin: "0 0 28px",
                 lineHeight: 1.55,
               }}
@@ -379,7 +379,7 @@ export function PricingCalculator({
               >
                 Pilot pricing
               </span>
-              <span style={{ fontSize: "12px", color: "oklch(42% 0.02 300)" }}>
+              <span style={{ fontSize: "12px", color: "oklch(66% 0.02 300)" }}>
                 10 spots left · 6-month program
               </span>
             </div>
@@ -401,7 +401,7 @@ export function PricingCalculator({
             <div
               style={{
                 fontSize: "12px",
-                color: "oklch(40% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 textDecoration: "line-through",
                 marginBottom: "2px",
               }}
@@ -421,7 +421,7 @@ export function PricingCalculator({
                 style={{
                   fontSize: "14px",
                   fontWeight: 400,
-                  color: "oklch(48% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                 }}
               >
                 /hr
@@ -430,7 +430,7 @@ export function PricingCalculator({
             <div
               style={{
                 fontSize: "11px",
-                color: "oklch(48% 0.02 300)",
+                color: "oklch(66% 0.02 300)",
                 marginTop: "2px",
               }}
             >
@@ -484,7 +484,7 @@ export function PricingCalculator({
                   fontWeight: 600,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
-                  color: "oklch(40% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginBottom: "10px",
                 }}
               >
@@ -506,7 +506,7 @@ export function PricingCalculator({
                     height: "38px",
                     background: "transparent",
                     border: "none",
-                    color: "oklch(55% 0.02 300)",
+                    color: "oklch(66% 0.02 300)",
                     fontSize: "20px",
                     cursor: "pointer",
                     lineHeight: 1,
@@ -535,7 +535,7 @@ export function PricingCalculator({
                     height: "38px",
                     background: "transparent",
                     border: "none",
-                    color: "oklch(55% 0.02 300)",
+                    color: "oklch(66% 0.02 300)",
                     fontSize: "20px",
                     cursor: "pointer",
                     lineHeight: 1,
@@ -553,7 +553,7 @@ export function PricingCalculator({
                   fontWeight: 600,
                   textTransform: "uppercase",
                   letterSpacing: "0.1em",
-                  color: "oklch(40% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginBottom: "10px",
                 }}
               >
@@ -569,7 +569,7 @@ export function PricingCalculator({
                     borderRadius: "7px",
                     border: "1px solid oklch(100% 0 0 / 0.12)",
                     background: "transparent",
-                    color: "oklch(46% 0.02 300)",
+                    color: "oklch(66% 0.02 300)",
                     cursor: "pointer",
                   }}
                 >
@@ -584,7 +584,7 @@ export function PricingCalculator({
                     borderRadius: "7px",
                     border: "1px solid oklch(100% 0 0 / 0.12)",
                     background: "transparent",
-                    color: "oklch(46% 0.02 300)",
+                    color: "oklch(66% 0.02 300)",
                     cursor: "pointer",
                   }}
                 >
@@ -599,7 +599,7 @@ export function PricingCalculator({
                     borderRadius: "7px",
                     border: "1px solid oklch(100% 0 0 / 0.12)",
                     background: "transparent",
-                    color: "oklch(46% 0.02 300)",
+                    color: "oklch(66% 0.02 300)",
                     cursor: "pointer",
                   }}
                 >
@@ -612,7 +612,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginBottom: "4px",
                 }}
               >
@@ -648,7 +648,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginBottom: "5px",
                 }}
               >
@@ -667,7 +667,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(34% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginTop: "3px",
                 }}
               >
@@ -683,7 +683,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginBottom: "5px",
                 }}
               >
@@ -702,7 +702,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(34% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginTop: "3px",
                 }}
               >
@@ -713,7 +713,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(57% 0.31 350)",
+                  color: "oklch(66% 0.31 350)",
                   marginBottom: "5px",
                 }}
               >
@@ -746,7 +746,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   marginBottom: "4px",
                 }}
               >
@@ -755,7 +755,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "18px",
-                  color: "oklch(38% 0.02 300)",
+                  color: "oklch(66% 0.02 300)",
                   textDecoration: "line-through",
                   fontVariantNumeric: "tabular-nums",
                 }}
@@ -815,7 +815,7 @@ export function PricingCalculator({
               <div
                 style={{
                   fontSize: "11px",
-                  color: "oklch(50% 0.12 145)",
+                  color: "oklch(66% 0.12 145)",
                   marginTop: "3px",
                 }}
               >

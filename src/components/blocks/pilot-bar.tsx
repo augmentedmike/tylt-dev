@@ -77,7 +77,7 @@ export function PilotBar({ ctaHref = "mailto:hello@tylt.dev" }: PilotBarProps) {
               }}
             ></div>
           </div>
-          <span style={{ fontSize: "11px", color: "oklch(42% 0.02 300)" }}>
+          <span style={{ fontSize: "11px", color: "oklch(66% 0.02 300)" }}>
             5 / 15 filled
           </span>
         </div>

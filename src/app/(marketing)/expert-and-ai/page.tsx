@@ -13,6 +13,7 @@ import { Hero } from "@/components/blocks/hero";
 import { Stats } from "@/components/blocks/stats";
 import { FeatureGrid } from "@/components/blocks/feature-grid";
 import { Comparison } from "@/components/blocks/comparison";
+import { TeamFormula } from "@/components/blocks/team-formula";
 import { CallToAction } from "@/components/blocks/call-to-action";
 import { Section, SectionHeading } from "@/components/blocks/section";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -24,9 +25,9 @@ const CONSULT_HREF = "#lead-consultation";
 const RESCUE_HREF = "/#rescue";
 const icon = "size-5.5";
 
-const PAGE_TITLE = "Expert + AI vs. anyone + AI";
+const PAGE_TITLE = "Why great software takes more than AI";
 const PAGE_DESCRIPTION =
-  "AI coding tools are a multiplier. Pointed at an expert engineer, they produce senior work at speed. Pointed at someone who can't tell good code from code that merely runs, they produce a demo that breaks in production. Same tool, opposite outcome.";
+  "Every shop can prompt the same models. What turns them into software that ships and scales is the system around them — AI-native senior engineers, a purpose-built agentic harness, and your product requirements. The difference was never who prompts the AI; it's the engineering and process wrapped around it.";
 
 export const metadata = pageMetadata({
   title: PAGE_TITLE,
@@ -65,21 +66,21 @@ interface SplitColumn {
 }
 
 const expertColumn: SplitColumn = {
-  eyebrow: "Expert engineer + AI",
-  title: "The tool amplifies real judgment.",
+  eyebrow: "AI + engineering expertise, on our system",
+  title: "Expertise, applied by a system built for it.",
   positive: true,
   points: [
-    "Knows what good looks like — and rejects the AI output that only looks right.",
-    "Reviews every line, because they can actually read and reason about it.",
-    "Designs the architecture first, so the codebase scales instead of ossifying.",
-    "Catches the security hole, the race condition, and the edge case the model glossed over.",
-    "Owns the result — there's a name, a reputation, and accountability behind every commit.",
+    "AI experts who know exactly what to trust from a model — and discard the ~40% that only looks right.",
+    "Senior engineers own the architecture, security, and quality bar, so it scales past the demo.",
+    "A purpose-built harness runs a reviewed fleet of agent workers — specs, code, tests, docs, deploys.",
+    "Every line is read and owned by someone accountable, never generated and shipped blind.",
+    "Built to hold up under the real load you'll actually see in production.",
   ],
 };
 
 const anyoneColumn: SplitColumn = {
-  eyebrow: "Anyone + AI",
-  title: "The tool amplifies the gaps.",
+  eyebrow: "AI in unskilled hands",
+  title: "A prompt box and hope.",
   positive: false,
   points: [
     "Can't tell working software from code that merely ran once on a happy path.",
@@ -95,9 +96,9 @@ function DriverSplit() {
   return (
     <Section>
       <SectionHeading
-        eyebrow="The multiplier"
-        title="The AI is the same. The person driving it is the whole difference."
-        subtitle="A coding model doesn't supply judgment — it multiplies whatever judgment is already there. That makes the operator, not the tool, the thing that decides whether you get a product or a liability."
+        eyebrow="Why the outcomes differ"
+        title="A raw model is the easy part."
+        subtitle="Any tool can generate plausible code. Turning it into software that ships and scales takes what a prompt box never will: real AI and engineering expertise, and a purpose-built system to apply it. Same model — a completely different machine around it."
       />
       <div className="mt-12 grid gap-4 lg:grid-cols-2">
         {[expertColumn, anyoneColumn].map((col) => (
@@ -175,15 +176,15 @@ export default function ExpertAndAiPage() {
       <JsonLd data={articleLd} />
       <Hero
         badge="The difference that matters"
-        title="AI writes the code."
-        titleAccent="Someone has to be right about it."
-        subtitle="Every AI coding tool is a multiplier. Point it at an expert and you get senior-grade work at three times the speed. Point it at someone who can't tell good code from code that merely runs, and you get a demo that breaks the moment it meets the real world. Same tool — opposite outcome."
+        title="Great software isn't generated."
+        titleAccent="It's engineered."
+        subtitle="Every shop can prompt the same models. What turns them into software that ships and scales is the system around them — AI-native senior engineers directing a purpose-built harness of agent workers, built against the requirements only your team can set. The difference was never who prompts the AI. It's the engineering and the process wrapped around it."
         primaryAction={{ label: "Get a free code audit", href: CONSULT_HREF }}
         secondaryAction={{ label: "Back to rescue", href: RESCUE_HREF }}
         highlights={[
-          "Senior review on every line",
-          "Architecture, not accretion",
-          "Security verified, not assumed",
+          "AI-native senior engineering",
+          "A purpose-built agentic harness",
+          "Reviewed, scaled, and owned",
         ]}
       />
 
@@ -258,11 +259,11 @@ export default function ExpertAndAiPage() {
 
       <Comparison
         eyebrow="Side by side"
-        title="Who's holding the keyboard decides what you ship"
-        subtitle="The speed is real either way. Everything that determines whether the software survives contact with production comes down to who's driving."
+        title="Same model. Three very different outcomes."
+        subtitle="The raw speed is similar across the board. Everything that decides whether the software does its job and survives real traffic comes down to the expertise and the system behind it."
         columns={[
-          { label: "Expert + AI", highlight: true },
-          { label: "Employee + AI" },
+          { label: "Tylt", highlight: true },
+          { label: "Anyone + AI" },
           { label: "AI alone" },
         ]}
         rows={[
@@ -298,11 +299,12 @@ export default function ExpertAndAiPage() {
         ]}
       />
 
+      <TeamFormula muted />
+
       <CallToAction
         title="Have an expert look at what you built."
         subtitle="Send us the repo — vibe-coded, half-finished, or just unsure. A senior engineer will tell you exactly what's solid, what's a liability, and what it takes to get it to production."
         primaryAction={{ label: "Get a free code audit", href: CONSULT_HREF }}
-        secondaryAction={{ label: "Back to rescue", href: RESCUE_HREF }}
         note="Typical reply within a few hours"
       />
     </>

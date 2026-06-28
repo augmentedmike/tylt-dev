@@ -7,8 +7,12 @@ import { cn } from "@/lib/utils";
 
 function Slider({
   className,
+  thumbLabel,
   ...props
-}: React.ComponentProps<typeof SliderPrimitive.Root>) {
+}: React.ComponentProps<typeof SliderPrimitive.Root> & {
+  /** Accessible name for the thumb (required when there's no visible label). */
+  thumbLabel?: string;
+}) {
   return (
     <SliderPrimitive.Root
       data-slot="slider"
@@ -29,6 +33,7 @@ function Slider({
       </SliderPrimitive.Track>
       <SliderPrimitive.Thumb
         data-slot="slider-thumb"
+        aria-label={thumbLabel}
         className="block size-4 shrink-0 rounded-full border-2 border-primary bg-background shadow-sm transition-[color,box-shadow] outline-none hover:ring-4 hover:ring-primary/20 focus-visible:ring-4 focus-visible:ring-primary/40 disabled:pointer-events-none"
       />
     </SliderPrimitive.Root>

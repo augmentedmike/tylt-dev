@@ -77,7 +77,7 @@ export function SiteFooter({
             </p>
             {industries && industries.length > 0 && (
               <div className="mt-5">
-                <p className="text-xs font-semibold tracking-[0.1em] text-muted-foreground/70 uppercase">
+                <p className="text-xs font-semibold tracking-[0.1em] text-muted-foreground uppercase">
                   Industry experience
                 </p>
                 <p className="mt-1.5 max-w-xs text-sm text-foreground/80">
@@ -109,7 +109,7 @@ export function SiteFooter({
         <div className="mt-10 border-t border-border/60 pt-6">
           {compliance && compliance.length > 0 && (
             <div className="mb-6 flex flex-wrap items-center gap-2">
-              <span className="mr-1 text-xs font-medium tracking-[0.1em] text-muted-foreground/70 uppercase">
+              <span className="mr-1 text-xs font-medium tracking-[0.1em] text-muted-foreground uppercase">
                 Built to support
               </span>
               {compliance.map((standard) => (

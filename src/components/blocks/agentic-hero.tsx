@@ -111,7 +111,7 @@ export function AgenticHero({
         <p
           style={{
             fontSize: "15px",
-            color: "oklch(55% 0.02 300)",
+            color: "oklch(66% 0.02 300)",
             lineHeight: 1.7,
             maxWidth: "560px",
             margin: "0 auto 40px",
@@ -139,8 +139,8 @@ export function AgenticHero({
             style={{
               display: "inline-flex",
               alignItems: "center",
-              background: "oklch(57% 0.31 350)",
-              color: "oklch(99% 0 0)",
+              background: "oklch(53% 0.31 350)",
+              color: "oklch(100% 0 0)",
               fontSize: "16px",
               fontWeight: 700,
               padding: "16px 36px",
@@ -184,7 +184,7 @@ export function AgenticHero({
             <span style={{ color: "oklch(62% 0.3 350)", fontSize: "13px" }}>
               ✓
             </span>
-            <span style={{ fontSize: "13px", color: "oklch(52% 0.02 300)" }}>
+            <span style={{ fontSize: "13px", color: "oklch(66% 0.02 300)" }}>
               Senior oversight on every project
             </span>
           </div>
@@ -220,7 +220,7 @@ export function AgenticHero({
             <span style={{ color: "oklch(62% 0.3 350)", fontSize: "13px" }}>
               ✓
             </span>
-            <span style={{ fontSize: "13px", color: "oklch(52% 0.02 300)" }}>
+            <span style={{ fontSize: "13px", color: "oklch(66% 0.02 300)" }}>
               Ship in days, not quarters
             </span>
           </div>

@@ -74,7 +74,6 @@ export default function WorkPage() {
         title="Want to be the next one?"
         subtitle="Tell us what you're building. We'll scope it, price it, and give you a ship date."
         primaryAction={{ label: "Book a call", href: "mailto:hello@tylt.dev" }}
-        secondaryAction={{ label: "Back home", href: "/" }}
         note="Typical reply within a few hours"
       />
     </>

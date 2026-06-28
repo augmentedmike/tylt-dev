@@ -34,8 +34,8 @@ export default function MarketingLayout({
             title: "Work with us",
             links: [
               { label: "Book a scoping call", href: "#lead-consultation" },
-              { label: "See pricing", href: "#savings" },
-              { label: "Read the FAQ", href: "#faq" },
+              { label: "See pricing", href: "/#savings" },
+              { label: "Read the FAQ", href: "/#faq" },
             ],
           },
           {
