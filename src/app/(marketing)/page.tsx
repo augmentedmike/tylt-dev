@@ -1,5 +1,8 @@
+import type { Metadata } from "next";
 import { Bot, Users, Wallet } from "lucide-react";
 
+import { JsonLd } from "@/components/seo/json-ld";
+import { SITE_URL } from "@/lib/seo";
 import { Stats } from "@/components/blocks/stats";
 import { FeatureGrid } from "@/components/blocks/feature-grid";
 import { Comparison } from "@/components/blocks/comparison";
@@ -18,9 +21,79 @@ const CONSULT_HREF = "#lead-consultation";
 const PILOT_HREF = "#lead-pilot";
 const icon = "size-5.5";
 
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
+
+// Single source of truth for the FAQ — rendered as UI and as FAQPage JSON-LD.
+const faqItems = [
+  {
+    question: "Can Tylt be our entire engineering department?",
+    answer:
+      "Yes — and that's exactly how most of our clients use us. Whether you're a startup with no engineers or a mid-size company that wants to stop hiring, Tylt acts as your full product and engineering org: a senior PM and designer own strategy and quality, digital employees execute the build, and you stay in the loop without managing a team.",
+  },
+  {
+    question: "We have an existing codebase. Can Tylt take it over?",
+    answer:
+      "Absolutely. We onboard into your repo, your stack, your deployment setup. We do a technical review in the first week, get familiar with the architecture, and start shipping from there. You don't need to rebuild anything to work with us.",
+  },
+  {
+    question: "How does Tylt fit alongside our internal team?",
+    answer:
+      "Flexibly. Some clients hand off everything; others keep a small internal team for strategy while Tylt handles all execution. We work in your tools (Slack, Linear, GitHub, Figma), join standups if you want, and operate however your team operates. We're an extension, not a replacement — unless you want us to be.",
+  },
+  {
+    question: "What about security, IP ownership, and NDAs?",
+    answer:
+      "You own everything. All code, designs, and assets built under your engagement are yours — no licensing, no lock-in. We sign NDAs before any work begins. For enterprise clients we offer custom MSAs, SOC 2 documentation, and can work within your existing security and compliance requirements.",
+  },
+  {
+    question: "How do we scale up or wind down?",
+    answer:
+      "Workers scale month to month. Need to move faster? Add workers. Shipping a smaller scope this month? Reduce utilization or pause. There are no minimums, no penalties for scaling down, and no lock-in contracts. Enterprise clients can run multiple concurrent workstreams under a single engagement.",
+  },
+];
+
+const faqLd = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqItems.map((item) => ({
+    "@type": "Question",
+    name: item.question,
+    acceptedAnswer: { "@type": "Answer", text: item.answer },
+  })),
+};
+
+const serviceLd = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  name: "Software design, development & delivery",
+  serviceType: "Agentic software development",
+  url: SITE_URL,
+  description:
+    "An American-owned agentic dev shop: in-house AI digital workers, steered by senior product leads, design, build, and ship your software for 60%+ less than a traditional onshore agency.",
+  provider: { "@type": "Organization", name: "Tylt", url: SITE_URL },
+  areaServed: { "@type": "Country", name: "United States" },
+  hasOfferCatalog: {
+    "@type": "OfferCatalog",
+    name: "Tylt services",
+    itemListElement: [
+      "Product design",
+      "Full-stack software development",
+      "Vibe-code rescue & security audit",
+      "Ongoing maintenance & same-day support",
+    ].map((name) => ({
+      "@type": "Offer",
+      itemOffered: { "@type": "Service", name },
+    })),
+  },
+};
+
 export default function Home() {
   return (
     <>
+      <JsonLd data={serviceLd} />
+      <JsonLd data={faqLd} />
       <ScrollEffect />
       <PilotBar ctaHref={PILOT_HREF} />
       <AgenticHero ctaHref={CONSULT_HREF} />
@@ -100,33 +173,7 @@ export default function Home() {
         eyebrow="FAQ"
         title="Questions, answered"
         subtitle="Still curious? Book a call — we'll walk you through everything."
-        items={[
-          {
-            question: "Can Tylt be our entire engineering department?",
-            answer:
-              "Yes — and that's exactly how most of our clients use us. Whether you're a startup with no engineers or a mid-size company that wants to stop hiring, Tylt acts as your full product and engineering org: a senior PM and designer own strategy and quality, digital employees execute the build, and you stay in the loop without managing a team.",
-          },
-          {
-            question: "We have an existing codebase. Can Tylt take it over?",
-            answer:
-              "Absolutely. We onboard into your repo, your stack, your deployment setup. We do a technical review in the first week, get familiar with the architecture, and start shipping from there. You don't need to rebuild anything to work with us.",
-          },
-          {
-            question: "How does Tylt fit alongside our internal team?",
-            answer:
-              "Flexibly. Some clients hand off everything; others keep a small internal team for strategy while Tylt handles all execution. We work in your tools (Slack, Linear, GitHub, Figma), join standups if you want, and operate however your team operates. We're an extension, not a replacement — unless you want us to be.",
-          },
-          {
-            question: "What about security, IP ownership, and NDAs?",
-            answer:
-              "You own everything. All code, designs, and assets built under your engagement are yours — no licensing, no lock-in. We sign NDAs before any work begins. For enterprise clients we offer custom MSAs, SOC 2 documentation, and can work within your existing security and compliance requirements.",
-          },
-          {
-            question: "How do we scale up or wind down?",
-            answer:
-              "Workers scale month to month. Need to move faster? Add workers. Shipping a smaller scope this month? Reduce utilization or pause. There are no minimums, no penalties for scaling down, and no lock-in contracts. Enterprise clients can run multiple concurrent workstreams under a single engagement.",
-          },
-        ]}
+        items={faqItems}
       />
 
       <CallToAction

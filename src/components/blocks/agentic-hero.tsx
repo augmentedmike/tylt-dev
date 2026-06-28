@@ -73,19 +73,7 @@ export function AgenticHero({
             American-owned/operated · Agentic dev shop
           </span>
         </div>
-        {/* H1 — two lines, both white, pink period */}
-        <h1
-          style={{
-            fontSize: "clamp(40px,6.5vw,82px)",
-            fontWeight: 800,
-            lineHeight: 1.08,
-            letterSpacing: "-0.025em",
-            color: "oklch(97% 0 0)",
-            margin: "0 0 4px",
-          }}
-        >
-          We&apos;re the AI experts.
-        </h1>
+        {/* H1 — two visual lines in a single heading, both white, pink period */}
         <h1
           style={{
             fontSize: "clamp(40px,6.5vw,82px)",
@@ -96,8 +84,13 @@ export function AgenticHero({
             margin: "0 0 36px",
           }}
         >
-          Your team doesn&apos;t have to be
-          <span style={{ color: "oklch(62% 0.3 350)" }}>.</span>
+          <span style={{ display: "block", marginBottom: "4px" }}>
+            We&apos;re the AI experts.
+          </span>
+          <span style={{ display: "block" }}>
+            Your team doesn&apos;t have to be
+            <span style={{ color: "oklch(62% 0.3 350)" }}>.</span>
+          </span>
         </h1>
         {/* bold subheading */}
         <p

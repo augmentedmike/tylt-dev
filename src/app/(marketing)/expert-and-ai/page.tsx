@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   Brain,
   Blocks,
@@ -16,17 +15,45 @@ import { FeatureGrid } from "@/components/blocks/feature-grid";
 import { Comparison } from "@/components/blocks/comparison";
 import { CallToAction } from "@/components/blocks/call-to-action";
 import { Section, SectionHeading } from "@/components/blocks/section";
+import { JsonLd } from "@/components/seo/json-ld";
 import { cn } from "@/lib/utils";
+import { pageMetadata, breadcrumbLd, SITE_URL } from "@/lib/seo";
 
 // CTA target — intercepted by <LeadDialog/> to open the consultation modal.
 const CONSULT_HREF = "#lead-consultation";
 const RESCUE_HREF = "/#rescue";
 const icon = "size-5.5";
 
-export const metadata: Metadata = {
-  title: "Expert + AI vs. anyone + AI",
-  description:
-    "AI coding tools are a multiplier. Pointed at an expert engineer, they produce senior work at speed. Pointed at someone who can't tell good code from code that merely runs, they produce a demo that breaks in production. Same tool, opposite outcome.",
+const PAGE_TITLE = "Expert + AI vs. anyone + AI";
+const PAGE_DESCRIPTION =
+  "AI coding tools are a multiplier. Pointed at an expert engineer, they produce senior work at speed. Pointed at someone who can't tell good code from code that merely runs, they produce a demo that breaks in production. Same tool, opposite outcome.";
+
+export const metadata = pageMetadata({
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  path: "/expert-and-ai",
+});
+
+const breadcrumb = breadcrumbLd([
+  { name: "Home", path: "/" },
+  { name: PAGE_TITLE, path: "/expert-and-ai" },
+]);
+
+const articleLd = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  headline: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  url: `${SITE_URL}/expert-and-ai`,
+  mainEntityOfPage: `${SITE_URL}/expert-and-ai`,
+  image: `${SITE_URL}/opengraph-image`,
+  author: { "@type": "Organization", name: "Tylt", url: SITE_URL },
+  publisher: {
+    "@type": "Organization",
+    name: "Tylt",
+    url: SITE_URL,
+    logo: { "@type": "ImageObject", url: `${SITE_URL}/tylt-mark.png` },
+  },
 };
 
 /** One side of the "who's driving" split. */
@@ -144,6 +171,8 @@ function DriverSplit() {
 export default function ExpertAndAiPage() {
   return (
     <>
+      <JsonLd data={breadcrumb} />
+      <JsonLd data={articleLd} />
       <Hero
         badge="The difference that matters"
         title="AI writes the code."
@@ -162,10 +191,23 @@ export default function ExpertAndAiPage() {
 
       <Stats
         stats={[
-          { value: "45%", label: "of AI-generated code ships with an OWASP-class flaw (Veracode)" },
-          { value: "3×", label: "faster delivery when an expert drives the tooling" },
-          { value: "100%", label: "of our code is reviewed and owned by a senior engineer" },
-          { value: "0", label: "handoffs to a queue who didn't write your code" },
+          {
+            value: "45%",
+            label:
+              "of AI-generated code ships with an OWASP-class flaw (Veracode)",
+          },
+          {
+            value: "3×",
+            label: "faster delivery when an expert drives the tooling",
+          },
+          {
+            value: "100%",
+            label: "of our code is reviewed and owned by a senior engineer",
+          },
+          {
+            value: "0",
+            label: "handoffs to a queue who didn't write your code",
+          },
         ]}
       />
 
@@ -249,7 +291,10 @@ export default function ExpertAndAiPage() {
             label: "Someone accountable for the result",
             values: [true, false, false],
           },
-          { label: "Production-ready, not just demo-ready", values: [true, false, false] },
+          {
+            label: "Production-ready, not just demo-ready",
+            values: [true, false, false],
+          },
         ]}
       />
 

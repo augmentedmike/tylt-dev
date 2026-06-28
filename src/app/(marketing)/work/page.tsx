@@ -1,15 +1,22 @@
-import type { Metadata } from "next";
 import { Gauge, Globe, PenTool } from "lucide-react";
 
 import { Hero } from "@/components/blocks/hero";
 import { FeatureGrid } from "@/components/blocks/feature-grid";
 import { CallToAction } from "@/components/blocks/call-to-action";
+import { JsonLd } from "@/components/seo/json-ld";
+import { pageMetadata, breadcrumbLd } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Our work",
   description:
     "A look at the products, brands, and sites Tylt has planned, built, and shipped.",
-};
+  path: "/work",
+});
+
+const breadcrumb = breadcrumbLd([
+  { name: "Home", path: "/" },
+  { name: "Our work", path: "/work" },
+]);
 
 const icon = "size-5.5";
 
@@ -20,6 +27,7 @@ const icon = "size-5.5";
 export default function WorkPage() {
   return (
     <>
+      <JsonLd data={breadcrumb} />
       <Hero
         badge="Selected work"
         title="Built fast."
