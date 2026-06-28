@@ -24,7 +24,11 @@ function Field({
   ...props
 }: FieldProps) {
   return (
-    <div data-slot="field" className={cn("flex flex-col gap-1.5", className)} {...props}>
+    <div
+      data-slot="field"
+      className={cn("flex flex-col gap-1.5", className)}
+      {...props}
+    >
       {(label || labelEnd) && (
         <div className="flex items-center justify-between gap-2">
           {label && (

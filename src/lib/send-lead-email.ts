@@ -69,7 +69,9 @@ function escapeHtml(value: string): string {
 function renderRows(payload: LeadPayload): Array<[string, string]> {
   const contextLabel = payload.type === "pilot" ? "Team size" : "Budget range";
   const messageLabel =
-    payload.type === "pilot" ? "What they're building" : "What they need help with";
+    payload.type === "pilot"
+      ? "What they're building"
+      : "What they need help with";
   return [
     ["Name", payload.name],
     ["Email", payload.email],

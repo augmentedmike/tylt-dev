@@ -3,8 +3,10 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
 
-export interface PressHoldProps
-  extends Omit<React.ComponentProps<"button">, "onClick" | "children"> {
+export interface PressHoldProps extends Omit<
+  React.ComponentProps<"button">,
+  "onClick" | "children"
+> {
   /** How long the button must be held, in ms, before firing. Default 6000 (6s). */
   holdMs?: number;
   /** Fires once after an uninterrupted hold of `holdMs`. */

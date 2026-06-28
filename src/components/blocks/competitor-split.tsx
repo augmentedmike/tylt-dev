@@ -96,8 +96,8 @@ export function CompetitorSplit() {
           >
             Base44, Bolt, and Lovable nail the demo — then leak secrets and ship
             vulnerabilities in production. Veracode found 45% of AI-generated
-            code carries an OWASP-class flaw. Tylt gives you the same speed, with
-            senior review on every line.
+            code carries an OWASP-class flaw. Tylt gives you the same speed,
+            with senior review on every line.
           </p>
         </div>
         <div

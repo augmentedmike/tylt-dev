@@ -62,8 +62,8 @@ export function VibeRescue({
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-pretty text-muted-foreground sm:text-lg">
             Base44, Bolt, Lovable, or a half-finished Cursor sprint — if it got
-            you to a demo but can&apos;t go to production, we turn it into a real
-            application with good code, proper architecture, and verified
+            you to a demo but can&apos;t go to production, we turn it into a
+            real application with good code, proper architecture, and verified
             security. Without throwing away what already works.
           </p>
         </div>

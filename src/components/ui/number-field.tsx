@@ -4,8 +4,10 @@ import * as React from "react";
 
 import { cn } from "@/lib/utils";
 
-export interface NumberFieldProps
-  extends Omit<React.ComponentProps<"input">, "onChange" | "value" | "type"> {
+export interface NumberFieldProps extends Omit<
+  React.ComponentProps<"input">,
+  "onChange" | "value" | "type"
+> {
   /** Current numeric value (controlled). */
   value: number | "";
   /** Called with the parsed number (or NaN when empty/invalid). */

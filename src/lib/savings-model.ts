@@ -106,8 +106,7 @@ export function computeSavings(
   const fraction = productiveFraction(teamSize, p);
 
   const perLine: DevLineResult[] = lines.map((line) => {
-    const loadedMonthlyCost =
-      (line.annualSalary / 12) * p.loadedMultiplier;
+    const loadedMonthlyCost = (line.annualSalary / 12) * p.loadedMultiplier;
     // Effective output: productive time, raised if they already wield AI.
     const aiFactor = line.usesAi ? 1 + p.aiUplift : 1;
     const effectiveDevMonths = fraction * aiFactor;

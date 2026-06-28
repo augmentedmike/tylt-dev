@@ -24,9 +24,19 @@ export interface SavingsCalculatorProps {
 }
 
 const STARTER_TEAM: DevLineData[] = [
-  { id: "dev-1", role: "Senior engineer", annualSalary: 180_000, usesAi: false },
+  {
+    id: "dev-1",
+    role: "Senior engineer",
+    annualSalary: 180_000,
+    usesAi: false,
+  },
   { id: "dev-2", role: "Mid engineer", annualSalary: 140_000, usesAi: false },
-  { id: "dev-3", role: "Product / PM lead", annualSalary: 160_000, usesAi: false },
+  {
+    id: "dev-3",
+    role: "Product / PM lead",
+    annualSalary: 160_000,
+    usesAi: false,
+  },
 ];
 
 export function SavingsCalculator({
@@ -68,7 +78,12 @@ export function SavingsCalculator({
     idCounter.current += 1;
     setLines((ls) => [
       ...ls,
-      { id: `dev-${idCounter.current}`, role: "", annualSalary: NaN, usesAi: false },
+      {
+        id: `dev-${idCounter.current}`,
+        role: "",
+        annualSalary: NaN,
+        usesAi: false,
+      },
     ]);
   };
 
@@ -106,7 +121,9 @@ export function SavingsCalculator({
 
         <div className="flex flex-col gap-5 rounded-2xl border border-border bg-card/40 p-5">
           <div className="flex items-center justify-between">
-            <h3 className="text-sm font-semibold text-foreground">Assumptions</h3>
+            <h3 className="text-sm font-semibold text-foreground">
+              Assumptions
+            </h3>
             <label className="flex items-center gap-2 text-xs text-muted-foreground select-none">
               <Checkbox
                 checked={pilot}

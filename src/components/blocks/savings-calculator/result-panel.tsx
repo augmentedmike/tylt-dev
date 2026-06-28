@@ -9,8 +9,7 @@ export interface ResultPanelProps {
   ctaHref?: string;
 }
 
-const usd = (n: number) =>
-  "$" + Math.round(n).toLocaleString("en-US");
+const usd = (n: number) => "$" + Math.round(n).toLocaleString("en-US");
 
 /** Headline savings panel: % cost reduction up top, then the cost breakdown. */
 export function ResultPanel({
@@ -43,14 +42,18 @@ export function ResultPanel({
           <p className="text-xs text-muted-foreground">Your team, loaded</p>
           <p className="mt-1 text-xl font-semibold text-foreground tabular-nums">
             {usd(result.currentMonthlyCost)}
-            <span className="text-sm font-normal text-muted-foreground">/mo</span>
+            <span className="text-sm font-normal text-muted-foreground">
+              /mo
+            </span>
           </p>
         </div>
         <div className="bg-card p-4">
           <p className="text-xs text-primary">With Tylt</p>
           <p className="mt-1 text-xl font-semibold text-foreground tabular-nums">
             {usd(result.tyltMonthlyCost)}
-            <span className="text-sm font-normal text-muted-foreground">/mo</span>
+            <span className="text-sm font-normal text-muted-foreground">
+              /mo
+            </span>
           </p>
         </div>
       </div>

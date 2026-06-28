@@ -74,9 +74,9 @@ const labelClass = "mb-1.5 block text-sm font-medium text-foreground";
 
 export function LeadDialog() {
   const [type, setType] = React.useState<LeadType | null>(null);
-  const [status, setStatus] = React.useState<
-    "idle" | "submitting" | "success"
-  >("idle");
+  const [status, setStatus] = React.useState<"idle" | "submitting" | "success">(
+    "idle",
+  );
   const [error, setError] = React.useState<string | null>(null);
   // Bumped on each failed attempt to remount the hold gate (resets its state).
   const [attempt, setAttempt] = React.useState(0);
@@ -286,8 +286,8 @@ export function LeadDialog() {
                   </PressHold>
                 )}
                 <p className="text-center text-xs text-muted-foreground">
-                  Press &amp; hold to submit — confirms you&apos;re human. We&apos;ll
-                  only use this to reply about your project.
+                  Press &amp; hold to submit — confirms you&apos;re human.
+                  We&apos;ll only use this to reply about your project.
                 </p>
               </form>
             </>
