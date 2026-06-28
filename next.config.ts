@@ -1,7 +1,8 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  // Keep the native MongoDB driver out of the bundle; load it at runtime.
+  serverExternalPackages: ["mongodb"],
 };
 
 export default nextConfig;

@@ -1,6 +1,6 @@
 "use server";
 
-import { sendLeadEmail, type LeadType } from "@/lib/send-lead-email";
+import { insertLead, type LeadType } from "@/lib/leads";
 
 const VALID_TYPES: LeadType[] = ["pilot", "consultation"];
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -23,8 +23,8 @@ function str(value: unknown): string {
 }
 
 /**
- * Server Action: validates a lead submission and emails it to the plus-addressed
- * consultation inbox. Reachable via direct POST, so every field is validated here.
+ * Server Action: validates a lead submission and stores it in MongoDB for the
+ * /system dashboard. Reachable via direct POST, so every field is validated here.
  */
 export async function submitLead(input: LeadInput): Promise<LeadResult> {
   // Honeypot — bots fill this hidden field; humans never see it. Pretend success.
@@ -53,20 +53,17 @@ export async function submitLead(input: LeadInput): Promise<LeadResult> {
   }
 
   try {
-    await sendLeadEmail({ type, name, email, message, company, context });
+    await insertLead({ type, name, email, message, company, context });
   } catch (err) {
     const reason = err instanceof Error ? err.message : "";
-    if (reason === "MISSING_SMTP") {
-      console.error("[lead] MAIL_HOST is not configured.");
-      return {
-        ok: false,
-        error: "Email isn't configured yet. Please email hello@tylt.dev.",
-      };
+    if (reason === "MISSING_MONGODB_URI") {
+      console.error("[lead] MONGODB_URI is not configured.");
+    } else {
+      console.error("[lead] save failed:", reason);
     }
-    console.error("[lead] send failed:", reason);
     return {
       ok: false,
-      error: "Something went wrong sending your request. Try again.",
+      error: "Something went wrong saving your request. Try again.",
     };
   }
 
