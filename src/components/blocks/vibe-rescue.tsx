@@ -13,6 +13,8 @@ export interface VibeRescueProps {
   id?: string;
   /** CTA target — opens the consultation modal. */
   ctaHref?: string;
+  /** "Learn more" target — the expert-vs-anyone explainer page. */
+  detailHref?: string;
 }
 
 const pillars = [
@@ -46,6 +48,7 @@ const pillars = [
 export function VibeRescue({
   id = "rescue",
   ctaHref = "#lead-consultation",
+  detailHref = "/expert-and-ai",
 }: VibeRescueProps) {
   return (
     <section id={id} className="px-4 py-20 sm:px-6 sm:py-28">
@@ -97,6 +100,16 @@ export function VibeRescue({
             Send us the repo — we&apos;ll tell you exactly what it&apos;ll take.
           </p>
         </div>
+
+        <p className="mt-6 text-center text-sm text-muted-foreground">
+          <a
+            href={detailHref}
+            className="inline-flex items-center gap-1.5 font-medium text-foreground underline-offset-4 transition-colors hover:text-primary hover:underline"
+          >
+            Why an expert engineer + AI beats anyone + AI
+            <ArrowRight className="size-3.5" />
+          </a>
+        </p>
       </div>
     </section>
   );
